@@ -53,7 +53,7 @@
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
@@ -65,7 +65,7 @@
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
@@ -101,6 +101,15 @@
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+
+        // Layer-tap with sticky-key tap (Hold=Layer, Tap=Sticky modifier)
+        lt_sk: layer_tap_sticky {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sk>;
         };
     };
 };
@@ -150,6 +159,14 @@
       key-positions = <37 38>; 
       bindings = <&kp DEL>;
     };
+
+    combo_d_e {
+        timeout-ms = <35>;
+        require-prior-idle-ms = <200>;
+        layers = <BASE>;
+        key-positions = <27 28>; /* D(27) + E(28) */
+        bindings = <&kp LCTRL>;
+    };
   };
 };
 
@@ -174,7 +191,7 @@
 &kp TAB             &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y           &kp U           &kp I           &kp O           &kp P           &kp BSLH
 &mt LCTRL ESC       &hml LGUI A     &hml LALT S     &hml LCTRL D    &hml LSHIFT F   &kp G                           &kp H           &hmr RSHIFT J   &hmr RCTRL K    &hmr RALT L     &hmr RGUI SEMI  &kp SQT
 &kp LSHFT           &kp Z           &kp X           &kp C           &kp V           &kp B       &none     &none     &kp N           &kp M           &kp COMMA       &kp DOT         AS(FSLH)        &kp RSHFT
-                                    &lt 2 DEL       &lt 2 BSPC      &lt 4 TAB       &none                           &none           &lt 4 RET       &lt 3 SPC       &lt 5 ESC
+                                    &lt 5 DEL       &lt 2 BSPC      &lt 4 TAB       &none                           &none           &lt 4 RET       &lt 3 SPC       &lt_sk 5 LC(LA(LS(LGUI)))
             >;
         };
 
@@ -193,8 +210,8 @@
             display-name = "nav";
             bindings = <
 &kp F12    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5                     &kp F6       &kp F7       &kp F8        &kp F9      &kp F10      &kp F11
-&kp TILDE  &none        &none        &none        &none        &none                      &kp LC(P)    &kp PG_UP    &kp HOME      &kp END     &kp PG_DN    &kp CAPS
-&kp CAPS   &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT   &kp UNDER    &kp PSCRN
+&kp TILDE  &none        &none        &none        &none        &none                      &kp LC(P)    &kp PG_UP    &kp HOME      &kp END     &kp PG_DN    &g_caps
+&g_caps    &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT   &kp UNDER    &kp PSCRN
 &none      &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &none    &none     &none   &none        &kp LC(BSPC) &kp BSPC      &kp DEL     &kp LC(DEL)  &none
                                      &trans       &trans       &trans   &none     &none   &trans       &kp DEL      &kp EQUAL
             >;
@@ -229,7 +246,7 @@ numpad_layer {
         &none       &none       &none       &none       &none       &none                           &kp LBKT         &kp N7      &kp N8      &kp N9      &kp RBKT    &kp BSPC
         &kp CAPS    &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHIFT  &none                           &kp KP_PLUS      &kp N4      &kp N5      &kp N6      &kp KP_MINUS &kp EQUAL
         &none       &none       &kp RALT    &none       &none       &none     &none      &none      &kp KP_MULTIPLY  &kp N1      &kp N2      &kp N3      &kp KP_SLASH &none
-                                            &none       &none       &kp BSPC  &none      &none      &kp N0           &kp DOT     &kp KP_NLCK
+                                            &none       &none       &kp BSPC  &none      &none      &kp DOT          &kp N0      &kp KP_NLCK
     >;
 };
 
@@ -246,7 +263,7 @@ numpad_layer {
 
         extra_1 {
             status = "reserved";
-        };ds
+        };
 
         extra_2 {
             status = "reserved";
