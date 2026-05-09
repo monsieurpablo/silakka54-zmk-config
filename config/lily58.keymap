@@ -145,6 +145,12 @@
       bindings = <&kp LA(BSPC)>;
     };
 
+    combo_jl_hyper_space {
+      timeout-ms = <50>;
+      key-positions = <31 33>; /* J(31) + L(33) */
+      bindings = <&kp LC(LA(LS(LG(SPACE))))>;
+    };
+
     combo_cv_spc {
       timeout-ms = <50>;
       key-positions = <39 40>; /* C(39) + V(40) */
