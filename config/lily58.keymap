@@ -133,9 +133,15 @@
     /* --- Kanata combo parity ---
      * Kanata's (esc 1) -> lrld reload chord has no ZMK firmware equivalent.
      */
-    combo_jk_alt_bspc {
+    combo_jk_hyper {
       timeout-ms = <50>;
       key-positions = <31 32>; /* J(31) + K(32) */
+      bindings = <&sk LC(LA(LS(LGUI)))>;
+    };
+
+    combo_kl_alt_bspc {
+      timeout-ms = <50>;
+      key-positions = <32 33>; /* K(32) + L(33) */
       bindings = <&kp LA(BSPC)>;
     };
 
@@ -163,9 +169,9 @@
       bindings = <&kp F16>;
     };
 
-    combo_space_f_cmd_grave {
+    combo_ui_cmd_grave {
       timeout-ms = <50>;
-      key-positions = <56 28>; /* Space(56) + F(28) */
+      key-positions = <19 20>; /* U(19) + I(20) */
       bindings = <&kp LG(GRAVE)>;
     };
   };
