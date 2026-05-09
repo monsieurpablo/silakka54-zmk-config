@@ -162,6 +162,12 @@
       key-positions = <26 28>; /* S(26) + F(28) */
       bindings = <&kp F16>;
     };
+
+    combo_space_f_cmd_grave {
+      timeout-ms = <50>;
+      key-positions = <56 28>; /* Space(56) + F(28) */
+      bindings = <&kp LG(GRAVE)>;
+    };
   };
 };
 
@@ -205,9 +211,9 @@
             display-name = "nav";
             bindings = <
 &kp F12    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5                     &kp F6       &kp F7       &kp F8        &kp F9      &kp F10      &kp F11
-&kp TILDE  &none        &none        &none        &none        &none                      &kp LC(P)    &kp PG_UP    &kp HOME      &kp END     &kp PG_DN    &g_caps
-&g_caps    &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT   &kp UNDER    &kp PSCRN
-&none      &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &none    &none     &none   &none        &kp LC(BSPC) &kp BSPC      &kp DEL     &kp LC(DEL)  &none
+&kp TILDE  &none        &none        &none        &none        &none                      &kp LG(P)    &kp PG_UP    &kp HOME      &kp END     &kp PG_DN    &g_caps
+&g_caps    &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT   &kp UNDER    &kp LG(LS(N4))
+&none      &kp LG(Z)    &kp LG(X)    &kp LG(C)    &kp LG(V)    &none    &none     &none   &none        &kp LA(BSPC) &kp BSPC      &kp DEL     &kp LA(DEL)  &none
                                      &trans       &trans       &trans   &none     &none   &trans       &kp DEL      &kp EQUAL
             >;
         };
