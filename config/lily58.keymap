@@ -135,14 +135,12 @@
      */
     combo_jk_alt_bspc {
       timeout-ms = <50>;
-      layers = <NAV>;
       key-positions = <31 32>; /* J(31) + K(32) */
       bindings = <&kp LA(BSPC)>;
     };
 
     combo_cv_spc {
       timeout-ms = <50>;
-      layers = <NAV>;
       key-positions = <39 40>; /* C(39) + V(40) */
       bindings = <&kp SPACE>;
     };
